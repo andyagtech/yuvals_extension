@@ -1,0 +1,1 @@
+var sites = ['wikipedia', 'wikibooks', 'wikiquote', 'wikia', 'wiktionary', 'gamepedia'];
