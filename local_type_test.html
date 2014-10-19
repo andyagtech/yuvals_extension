@@ -1,0 +1,99 @@
+<html>
+
+	<head>
+		<script src="jquery.js"></script>
+		<script src="typeahead.js"></script>
+			
+		<script>
+		
+//			localStorage.removeItem("dogelist");
+						
+//			var sites = ['Wikipedia', 'Wikibooks', 'Wikiquote','Wikia', 'Wiktionary', 'Gamepedia'];
+//			localStorage.setItem("dogelist", sites);
+
+			function maim()
+			{
+				localStorage.removeItem("dogelist");
+				
+				if( localStorage.getItem("dogelist")  == null )
+				{
+					$("#test").append("We could not find a list for you. Please blow on your graphics card. ");				
+				}
+				else
+				{				
+					stored_text = localStorage.getItem("dogelist");
+					$("#test").append("Grabbed from local storage: ");
+					$("#test").append("<br>");			
+					$("#test").append(stored_text);				
+				}
+				
+			}
+			
+			stored_text = localStorage.getItem("dogelist")
+			
+			
+			
+			setTimeout( maim, 500);	
+			
+		</script>
+		
+	</head>
+	<body>
+		<div id="test"> Test Div <br> </div>
+		<div> Second div... unchanged... </div>
+		<div id="the-basics">
+			<input class="typeahead" type="text" placeholder="Sites">
+		</div>
+		
+		<button id="add">ADD</button>
+		
+		<script>
+			
+		
+		</script>
+		
+		<script>
+		
+		
+			var substringMatcher = function(strs) {
+				return function findMatches(q, cb) {
+			var matches, substringRegex;
+		 
+			// an array that will be populated with substring matches
+			matches = [];
+		 
+			// regex used to determine if a string contains the substring `q`
+			substrRegex = new RegExp(q, 'i');
+		 
+			// iterate through the pool of strings and for any string that
+			// contains the substring `q`, add it to the `matches` array
+			$.each(strs, function(i, str) {
+			  if (substrRegex.test(str)) {
+				// the typeahead jQuery plugin expects suggestions to a
+				// JavaScript object, refer to typeahead docs for more info
+				matches.push({ value: str });
+			  }
+			});
+		 
+			cb(matches);
+		  };
+		};
+
+		var sites = ['Wikipedia', 'Wikibooks', 'Wikiquote', 
+					 'Wikia', 'Wiktionary', 'Gamepedia'];
+		 
+		$('#the-basics .typeahead').typeahead({
+		  hint: true,
+		  highlight: true,
+		  minLength: 1
+		},
+		{
+		  name: 'sites',
+		  displayKey: 'value',
+		  source: substringMatcher(sites)
+		});
+				
+		</script>
+		
+	</body>
+</html>

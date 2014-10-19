@@ -1,0 +1,36 @@
+{
+	"manifest_version": 2,
+	"name": "Wiki Highlight",
+	"version": "0.8",
+	"description": "Highlights things your mouse is hovering over on Wikipedia. Maybe borrows some CC info...",
+	"content_scripts": 
+	[
+		{
+			"matches": ["*://*.wikipedia.org/*"],
+			"run_at": "document_end",
+			"css": ["dogelight.css", "animate.css"],
+			"js": [
+					"manager.js",
+					"jquery.js",
+					"knockout.js"
+				   ]
+		}
+	],
+	"permissions":
+	[
+		"unlimitedStorage",
+		"notifications",
+		"history",
+		"webRequestBlocking",
+		"storage",
+		"tabs"
+	],
+	"browser_action":
+	{
+		"default_icon":"doge_con.png",
+		"default_popup": "popup.html"		
+	},
+	"icons":{ "16": "doge_dog.jpg",
+              "48": "doge_dog.jpg",
+              "128": "doge_dog.jpg" }
+}
