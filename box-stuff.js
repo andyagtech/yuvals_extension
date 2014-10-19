@@ -1,23 +1,15 @@
-/*$(document).ready(function()
-	{ 
-		$("add_button").click(function()
-			{
-				$("#entry_box").html("<h3> What?!</h3>");
-								
-			}
-		);
-	}
-); */
-
 $(document).ready(function()
 	{ 
+	// click handler, this changes hey to wow, grabs content from text box
 		$("#print_button").click(function()
 			{
+				textval       = $("#textbox").val();			
+				new_site_item =  "<li><input type=\"checkbox\"> " + textval + " </input></li>" ;
+				$("#site_list").append(new_site_item);
+			
 				console.log("such success many click");
-//				$("#entry_box").html("<button id=\"cancel\">Cancel</button><input type=\"text\"></input><button id=\"submit\">Submit</button>");
-				$("#entry_box").html("wow");
-				textval = $("#textbox").val ();
-				console.log("we've actually done something" + textval);
+				$("#entry_box").html("wow");			
+				console.log("we've actually done something " + textval);
 			}
 		);
 
@@ -43,6 +35,7 @@ $(document).ready(function()
 
 
 
+//				$("#entry_box").html("<button id=\"cancel\">Cancel</button><input type=\"text\"></input><button id=\"submit\">Submit</button>");
 
 /*
 $( "#add_button" ).onclick(function() {
