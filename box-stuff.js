@@ -4,9 +4,16 @@ $(document).ready(function()
 		$("#print_button").click(function()
 			{
 				textval       = $("#textbox").val();			
-				new_site_item =  "<li><input type=\"checkbox\"> " + textval + " </input></li>" ;
-				$("#site_list").append(new_site_item);
-			
+				if(textval != "")
+					{
+						new_site_item =  "<li><input type=\"checkbox\"> " + textval + " </input></li>" ;
+						$("#site_list").append(new_site_item);
+					}
+				else
+					{
+						$("#button").after("<p style=\"color:red;\">Please enter a value.</p>");
+					}
+				
 				console.log("such success many click");
 				$("#entry_box").html("wow");			
 				console.log("we've actually done something " + textval);
