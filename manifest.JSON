@@ -10,10 +10,9 @@
 			"run_at": "document_end",
 			"css": ["dogelight.css", "animate.css"],
 			"js": [
-					"manager.js",
 					"jquery.js",
 					"knockout.js"
-				   ]
+				  ]
 		}
 	],
 	"permissions":

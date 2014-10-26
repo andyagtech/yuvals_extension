@@ -11,7 +11,13 @@ $(document).ready(function()
 					}
 				else
 					{
-						$("#button").after("<p style=\"color:red;\">Please enter a value.</p>");
+						$("#button").after("<p style=\"color:red;\" class=\"beepboop\">Please enter a value.</p>");
+						setTimeout(function()
+											{
+												console.log("beep boop destroying");
+												$(".beepboop").remove();
+											}, 
+								   1000);
 					}
 				
 				console.log("such success many click");
