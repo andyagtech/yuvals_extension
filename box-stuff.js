@@ -1,5 +1,25 @@
 $(document).ready(function()
-	{ 
+	{
+
+    // Local Storage Tests //
+
+    $("#local_storage_get").click(function(){
+            desired_key = "wh-" + $("#local_storage_text").val();
+            var local_storage_result = localStorage.getItem(desired_key);
+            console.log(local_storage_result);
+            $("local_storage_output").append(local_storage_result);
+        }
+    );
+
+    $("#local_storage_set").click(function(){
+            desired_key   = "wh-" + $("#local_storage_key").val();
+            desired_value = $("#local_storage_value").val();
+            var local_storage_result = localStorage.setItem(desired_key, desired_value);
+            console.log(local_storage_result);
+//            $("local_storage_output").append(local_storage_output);
+        }
+    );
+
 	// click handler, this changes hey to wow, grabs content from text box
 		$("#print_button").click(function()
 			{
@@ -41,8 +61,30 @@ $(document).ready(function()
 /*		chrome.tabs.getCurrent(function(tab){
 												alert(tab.url);
 											});
-*/											
-	}
+*/
+
+        try {
+            var test = 'setLocalStorageCheck';
+
+
+            localStorage.setItem(test, test);
+            localStorage.removeItem(test);
+            var obj = {};
+            Object.defineProperty(obj, 'prop', {
+                get: function() {
+                },
+                set: function() {
+                "wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow "}
+            });
+        }
+        catch(e) {
+            alert('Your browser is not supported, sorry!');
+            throw e;
+        }
+
+
+
+    }
 );
 
 
