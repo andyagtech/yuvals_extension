@@ -11,7 +11,8 @@
 			"css": ["dogelight.css", "animate.css"],
 			"js": [
 					"jquery.js",
-					"knockout.js"
+					"knockout.js",
+                    "parsley.min.js"
 				  ]
 		}
 	],

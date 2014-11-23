@@ -20,10 +20,44 @@ $(document).ready(function()
         }
     );
 
+
+
+//     chrome section
+
+        $("#chrome_storage_get").click(function(){
+                desired_key = "wh-" + $("#chrome_storage_text").val();
+                chrome.storage.sync.get(desired_key,
+                                        function(result){
+                                            console.log('Get success!');
+                                            console.log(result);
+                                        }
+                );
+                $("chrome_storage_output").append(chrome_storage_result);
+            }
+        );
+
+
+        $("#chrome_storage_set").click(function(){
+                desired_key   = "wh-" + $("#chrome_storage_key").val();
+                desired_value = $("#chrome_storage_value").val();
+                chrome.storage.sync.set({desired_key:desired_value},
+                                         function(){
+                                             console.log("Saved to Chrome Storage");
+                                         }
+                                       );
+            }
+        );
+
+// end chrome section
+
+
+
+
+
 	// click handler, this changes hey to wow, grabs content from text box
 		$("#print_button").click(function()
 			{
-				textval       = $("#textbox").val();			
+				textval       = $("#textbox").val();
 				if(textval != "")
 					{
 						new_site_item =  "<li><input type=\"checkbox\"> " + textval + " </input></li>" ;
