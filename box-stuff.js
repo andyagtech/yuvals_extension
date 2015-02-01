@@ -1,6 +1,37 @@
     $(document).ready(function()
 	{
 
+    $("#listadd_button").click(function()
+    {
+
+        sitedict = {};
+        list_of_sites = $("li").toArray();
+        siteList = [];
+
+        for (item of list_of_sites){
+            // Current Site List //
+            siteList.push(item.innerText);
+            var current_item = item.innerText.trim();
+
+            // Map current_item to its check property in sitedivt //
+            var current_prop = $('#'+ current_item).prop("checked");
+
+            sitedict[current_item] = current_prop;
+
+        }
+
+        console.log(sitedict);
+        //console.log(siteList);
+
+    });
+
+    // The remove button needs 3 steps
+        // 1. Find the index we want to remove
+        // 2. Splice
+        // 3. Update the HTML
+
+
+
 	// click handler, this changes hey to wow, grabs content from text box
 		$("#add_button").click(function()
 			{

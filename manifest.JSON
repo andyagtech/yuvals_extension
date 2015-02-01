@@ -1,17 +1,16 @@
 {
 	"manifest_version": 2,
 	"name": "Wiki Highlight",
-	"version": "0.8",
+	"version": "0.9",
 	"description": "Highlights things your mouse is hovering over on Wikipedia. Maybe borrows some CC info...",
 	"content_scripts": 
 	[
 		{
 			"matches": ["*://*.wikipedia.org/*"],
 			"run_at": "document_end",
-			"css": ["dogelight.css", "animate.css"],
+			"css": ["dogelight.css"],
 			"js": [
 					"jquery.js",
-					"knockout.js",
                     "parsley.min.js"
 				  ]
 		}
