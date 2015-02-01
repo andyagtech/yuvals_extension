@@ -1,1 +1,2 @@
-var sites = ['wikipedia', 'wikibooks', 'wikiquote', 'wikia', 'wiktionary', 'gamepedia'];
+var sites = ['Wikipedia', 'Wikia', 'Gamepedia'];
+var wiki_str = "wikipedia";
