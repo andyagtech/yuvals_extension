@@ -1,6 +1,37 @@
 $(document).ready(function()
 {
 
+    // ************************************************ //
+
+
+   // Look at local storage and see what we saved //
+
+
+    var checked_sites   = localStorage.getItem('wh_checked');
+    var unchecked_sites = localStorage.getItem('wh_unchecked');
+
+
+    // If we have check and unchecked {} in local storage, continue
+
+       // Blank List
+            // Wikipedia check by default?
+
+    // What is our current site
+
+    // Is said site checked?
+
+        // If it is, apply the CSS
+
+        // dont do nutin
+
+
+    // Look at the checkboxes and update localStorage
+
+    localStorage.setItem('wh_checked', updated_site_list);
+
+
+    // *********************************************** //
+
     $("#listadd_button").click(function()
     {
 
@@ -76,7 +107,7 @@ $(document).ready(function()
 
 
     // We need to do some work here //
-    current_site = window.location.hostname.split('.')[1]; // current_site = "wikipedia";
+    var current_site = window.location.hostname.split('.')[1]; // current_site = "wikipedia";
     var re = new RegExp(current_site, "i");   // (pattern, flag)
 
     for (site of siteList)
