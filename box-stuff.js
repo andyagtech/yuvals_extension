@@ -3,20 +3,55 @@ $(document).ready(function()
 
     // ************************************************ //
 
+    // Test Data //
+        // So we can test the local storage. //
+//    localStorage.setItem('wh_checked', ['Wikipedia','Gamepedia']);
+//    localStorage.setItem('wh_unchecked', ['Wikia']);
 
    // Look at local storage and see what we saved //
-
 
     var checked_sites   = localStorage.getItem('wh_checked');
     var unchecked_sites = localStorage.getItem('wh_unchecked');
 
 
     // If we have check and unchecked {} in local storage, continue
+    if (!checked_sites) {
+        // Define the default list of sites //
+        checked_sites = [];
+        checked_sites.push('Wikipedia');
+        checked_sites.push('Gamepedia');
+        checked_sites.push('Wikia');
 
-       // Blank List
-            // Wikipedia check by default?
+        // Set them to be checked //
+        $("#Wikipedia").prop("checked", true);
+        $("#Gamepedia").prop("checked", true);
+        $("#Wikia").prop("checked", true);
+    } else {
+        console.log('it exists!');
+        // Generate the HTML elements for the popup ! //
+    }
+        // console.log('o no BibleThump');
 
-    // What is our current site
+    // What is our current site?! //
+    var currentUrl;
+
+    // chrome.tabs.query( object, function );
+    chrome.tabs.query(
+                        {'active': true, 'windowId': chrome.windows.WINDOW_ID_CURRENT},
+                        function(tabs){
+                            // Print ALL the results //
+                            tabs.forEach(
+                                function(tab)
+                                {
+                                    console.log(tab.url);
+                                }
+                            )
+                            // For l8er //
+                            currentUrl = tabs[0].url;
+                        }
+    );
+
+    console.log('current url',currentUrl);
 
     // Is said site checked?
 
@@ -27,7 +62,7 @@ $(document).ready(function()
 
     // Look at the checkboxes and update localStorage
 
-    localStorage.setItem('wh_checked', updated_site_list);
+//    localStorage.setItem('wh_checked', updated_site_list);
 
 
     // *********************************************** //
@@ -107,14 +142,16 @@ $(document).ready(function()
 
 
     // We need to do some work here //
+
+/*
     var current_site = window.location.hostname.split('.')[1]; // current_site = "wikipedia";
     var re = new RegExp(current_site, "i");   // (pattern, flag)
 
     for (site of siteList)
-    {
+        {
         console.log( site.match(re) );
     }
-
+*/
 
     try {
         var test = 'setLocalStorageCheck';
